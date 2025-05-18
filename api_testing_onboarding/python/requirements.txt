@@ -1,5 +1,0 @@
-selenium
-requests
-pytest
-pytest-order
-pytest-xdist
