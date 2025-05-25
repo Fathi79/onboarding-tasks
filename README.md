@@ -1,7 +1,7 @@
 # PetStore API Testing Project
 
 ## Overview
-This project is an API testing suite for the PetStore API (`https://petstore.swagger.io/v2/pet`) as part of the Siemens onboarding tasks. It uses Python with `pytest` and `unittest` to test CRUD operations (Create, Read, Update, Delete) on pet resources. The tests are implemented in `test_pet_api.py`, with helper utilities in `utils/utils.py`.
+This project is an API testing suite for the PetStore API (`https://petstore.swagger.io/v2/pet`) as part of the Siemens onboarding tasks. It uses Python with `pytest`to test CRUD operations (Create, Read, Update, Delete) on pet resources. The tests are implemented in `test_pet_api.py`, with helper utilities in `helper/utils.py`.
 
 ## Project Structure
 ```
@@ -25,11 +25,12 @@ api_testing_onboarding/python
   - `test_case_get_pet`: Retrieves the pet via GET.
   - `test_case_update_pet`: Updates the pet via PUT.
   - `test_case_delete_pet`: Deletes the pet via DELETE.
-  - `test_case_verify_pet_deleted`: Verifies deletion with a GET (expects 404).
-- **utils/utils.py**: Defines:
+- **helpers/utils.py**: Defines:
   - `PET_ENDPOINT`: The API base URL (`https://petstore.swagger.io/v2/pet`).
   - `NEW_PET`: A global dictionary to store pet data.
   - `create_pet_payload`: A function to generate a pet payload with fields like `id`, `category`, `name`, `photoUrls`, `tags`, and `status`.
+  - `create_pet_payload`: A function to generate a pet payload with fields like `id`, `category`, `name`, `photoUrls`, `tags`, and `status`.
+
 - **requirements.txt**: Lists dependencies (e.g., `requests`, `pytest`, `pytest-order`).
 
 ## Prerequisites
