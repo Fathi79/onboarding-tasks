@@ -42,7 +42,8 @@ api_testing_onboarding/python
 ## Setup Instructions
 1. **Clone the Repository** (if applicable):
    ```bash
-   git clone <repository-url>
+   git clone "https://github.com/Fathi79/onboarding-tasks"
+   git checkout api-testing-python
    cd api-testing-onboarding/python
    ```
 
@@ -65,33 +66,29 @@ api_testing_onboarding/python
 4. **Verify Setup**:
    Ensure the `utils` package is accessible by running:
    ```bash
-   python -c "from utils.utils import PET_ENDPOINT; print(PET_ENDPOINT)"
+   python -c "from helper.utils import PET_ENDPOINT; print(PET_ENDPOINT)"
    ```
    Output: `https://petstore.swagger.io/v2/pet`
 
 ## Running the Tests
 1. **Navigate to the Project Directory**:
    ```bash
-   cd Siemens_OnBoardingTasks\api_testing_onboarding\python
+   cd onboarding-tasks\api_testing_onboarding\python
    ```
 
 2. **Run Tests with pytest**:
    ```bash
-   pytest tests\test_pet_api.py -v
+   python -m pytest tests\test_pet_api.py -v
    ```
    The `-v` flag provides verbose output, including test names and statuses.
 
-3. **Run Tests with unittest** (alternative):
+##  Running using Docker
+   * After navigating to python folder run the following commands
    ```bash
-   python tests\test_pet_api.py
+      docker build -t petstore-api-tests
+      docker run --rm petstore-api-tests
    ```
+
 
 ## Known Issues
 - **API Persistence**: The PetStore API may not reliably persist pets created via `POST`, leading to 404 errors in `test_case_get_pet`.
-- **DELETE Operation**: The `DELETE` request often fails to remove the pet, causing `test_case_verify_pet_deleted` to return 200 instead of 404.
-- **Response Structure**: The API responses lack a top-level `'name'` field, despite the request payload including it. Tests have been adjusted to avoid `KeyError` by checking other fields (e.g., `id`, `status`).
-- **Workarounds**:
-  - Use a random `pet_id` to avoid conflicts (not implemented in the current code).
-  - Add retries for `GET` and `DELETE` requests to handle API delays.
-  - Mock the API using the `responses` library if reliability issues persist.
-
