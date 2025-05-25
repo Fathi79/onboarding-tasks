@@ -91,11 +91,14 @@ To use headless mode or another browser (e.g. Edge), modify the `resources.robot
 
 ---
 
-## 🤝 Contributing
+## Run Using Docker
+Navigate to robot folder, open CMD and run the is command 
 
-Feel free to fork and improve the test suite! Add new test cases under `tests/`, and shared logic/keywords in `resources/`.
+```bach
+    docker build -t ui-robot-tests .
+    docker run --rm ui-robot-tests
+```
 
----
 
 ## 📦 Dependencies
 

@@ -1,0 +1,961 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.2.2 (Python 3.13.3 on win32)" generated="2025-05-25T16:19:50.005556" rpa="false" schemaversion="5">
+<suite id="s1" name="Test Demoblaze" source="C:\Users\z0054tzy\Desktop\Personal\on boarding\Tasks\onboarding-tasks\demoblaze-ui-tests\robot\tests\test_demoblaze.robot">
+<test id="s1-t1" name="Verify Total Item Count Across All Pages" line="14">
+<kw name="Open Edge On Landing Page" owner="resources" type="SETUP">
+<kw name="Create Webdriver" owner="SeleniumLibrary">
+<msg time="2025-05-25T16:19:50.205625" level="INFO">Creating an instance of the Chrome WebDriver.</msg>
+<arg>Chrome</arg>
+<doc>Creates an instance of Selenium WebDriver.</doc>
+<status status="PASS" start="2025-05-25T16:19:50.205521" elapsed="1.289902"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2025-05-25T16:19:51.495625" elapsed="0.026536"/>
+</kw>
+<kw name="Go To" owner="SeleniumLibrary">
+<msg time="2025-05-25T16:19:51.522607" level="INFO">Opening url 'https://www.demoblaze.com/'</msg>
+<arg>${landing_page}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<status status="PASS" start="2025-05-25T16:19:51.522347" elapsed="2.018231"/>
+</kw>
+<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
+<arg>id:cat</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" start="2025-05-25T16:19:53.540775" elapsed="0.007381"/>
+</kw>
+<arg>https://www.demoblaze.com/</arg>
+<status status="PASS" start="2025-05-25T16:19:50.205056" elapsed="3.343224"/>
+</kw>
+<kw name="Go To Home Page" owner="resources">
+<kw name="Go To" owner="SeleniumLibrary">
+<msg time="2025-05-25T16:19:53.548972" level="INFO">Opening url 'https://www.demoblaze.com/index.html'</msg>
+<arg>https://www.demoblaze.com/index.html</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<status status="PASS" start="2025-05-25T16:19:53.548888" elapsed="0.239112"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${cat_icon}</arg>
+<arg>timeout=10s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-05-25T16:19:53.788160" elapsed="0.011843"/>
+</kw>
+<status status="PASS" start="2025-05-25T16:19:53.548639" elapsed="0.251469"/>
+</kw>
+<kw name="Get Total Item Count" owner="resources">
+<kw name="Create List" owner="BuiltIn">
+<msg time="2025-05-25T16:19:53.800790" level="INFO">@{all_items} = [ ]</msg>
+<var>@{all_items}</var>
+<doc>Returns a list containing given items.</doc>
+<status status="PASS" start="2025-05-25T16:19:53.800686" elapsed="0.000124"/>
+</kw>
+<while condition="True">
+<iter>
+<kw name="Get WebElements" owner="SeleniumLibrary">
+<msg time="2025-05-25T16:19:53.807519" level="INFO">${elements} = []</msg>
+<var>${elements}</var>
+<arg>${item_cards}</arg>
+<doc>Returns a list of WebElement objects matching the ``locator``.</doc>
+<status status="PASS" start="2025-05-25T16:19:53.801045" elapsed="0.006518"/>
+</kw>
+<kw name="Combine Lists" owner="Collections">
+<msg time="2025-05-25T16:19:53.807896" level="INFO">${all_items} = []</msg>
+<var>${all_items}</var>
+<arg>${all_items}</arg>
+<arg>${elements}</arg>
+<doc>Combines the given ``lists`` together and returns the result.</doc>
+<status status="PASS" start="2025-05-25T16:19:53.807724" elapsed="0.000189"/>
+</kw>
+<kw name="Run Keyword And Return Status" owner="BuiltIn">
+<kw name="Element Should Be Visible" owner="SeleniumLibrary">
+<msg time="2025-05-25T16:19:53.817874" level="INFO">Element 'id:next2' is displayed.</msg>
+<arg>${next_button}</arg>
+<doc>Verifies that the element identified by ``locator`` is visible.</doc>
+<status status="PASS" start="2025-05-25T16:19:53.808089" elapsed="0.009865"/>
+</kw>
+<msg time="2025-05-25T16:19:53.818060" level="INFO">${is_visible} = True</msg>
+<var>${is_visible}</var>
+<arg>Element Should Be Visible</arg>
+<arg>${next_button}</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<status status="PASS" start="2025-05-25T16:19:53.807989" elapsed="0.010088"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<arg>not ${is_visible}</arg>
+<arg>Exit For Loop</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2025-05-25T16:19:53.818202" elapsed="0.000160"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2025-05-25T16:19:53.818563" level="INFO">Clicking button 'id:next2'.</msg>
+<arg>${next_button}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2025-05-25T16:19:53.818437" elapsed="0.045640"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-05-25T16:19:55.864617" level="INFO">Slept 2 seconds.</msg>
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-05-25T16:19:53.864321" elapsed="2.000419"/>
+</kw>
+<status status="PASS" start="2025-05-25T16:19:53.800862" elapsed="2.063971"/>
+</iter>
+<iter>
+<kw name="Get WebElements" owner="SeleniumLibrary">
+<msg time="2025-05-25T16:19:55.872605" level="INFO">${elements} = [&lt;selenium.webdriver.remote.webelement.WebElement (session="8f880563a0ce7a456e1834a118284ef5", element="f.87A6F39159428F7C4AA6BECE4D41F1EE.d.447BFC882CF1303A46643E4CFA79B8A4.e.136")&gt;, &lt;selenium.webdri...</msg>
+<var>${elements}</var>
+<arg>${item_cards}</arg>
+<doc>Returns a list of WebElement objects matching the ``locator``.</doc>
+<status status="PASS" start="2025-05-25T16:19:55.865250" elapsed="0.007390"/>
+</kw>
+<kw name="Combine Lists" owner="Collections">
+<msg time="2025-05-25T16:19:55.872886" level="INFO">${all_items} = [&lt;selenium.webdriver.remote.webelement.WebElement (session="8f880563a0ce7a456e1834a118284ef5", element="f.87A6F39159428F7C4AA6BECE4D41F1EE.d.447BFC882CF1303A46643E4CFA79B8A4.e.136")&gt;, &lt;selenium.webdri...</msg>
+<var>${all_items}</var>
+<arg>${all_items}</arg>
+<arg>${elements}</arg>
+<doc>Combines the given ``lists`` together and returns the result.</doc>
+<status status="PASS" start="2025-05-25T16:19:55.872747" elapsed="0.000157"/>
+</kw>
+<kw name="Run Keyword And Return Status" owner="BuiltIn">
+<kw name="Element Should Be Visible" owner="SeleniumLibrary">
+<msg time="2025-05-25T16:19:55.880569" level="INFO">Element 'id:next2' is displayed.</msg>
+<arg>${next_button}</arg>
+<doc>Verifies that the element identified by ``locator`` is visible.</doc>
+<status status="PASS" start="2025-05-25T16:19:55.873068" elapsed="0.007564"/>
+</kw>
+<msg time="2025-05-25T16:19:55.880719" level="INFO">${is_visible} = True</msg>
+<var>${is_visible}</var>
+<arg>Element Should Be Visible</arg>
+<arg>${next_button}</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<status status="PASS" start="2025-05-25T16:19:55.872976" elapsed="0.007759"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<arg>not ${is_visible}</arg>
+<arg>Exit For Loop</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2025-05-25T16:19:55.880837" elapsed="0.000134"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2025-05-25T16:19:55.881153" level="INFO">Clicking button 'id:next2'.</msg>
+<arg>${next_button}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2025-05-25T16:19:55.881039" elapsed="0.042815"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-05-25T16:19:57.924367" level="INFO">Slept 2 seconds.</msg>
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-05-25T16:19:55.924067" elapsed="2.000517"/>
+</kw>
+<status status="PASS" start="2025-05-25T16:19:55.864898" elapsed="2.059810"/>
+</iter>
+<iter>
+<kw name="Get WebElements" owner="SeleniumLibrary">
+<msg time="2025-05-25T16:19:57.933003" level="INFO">${elements} = [&lt;selenium.webdriver.remote.webelement.WebElement (session="8f880563a0ce7a456e1834a118284ef5", element="f.87A6F39159428F7C4AA6BECE4D41F1EE.d.447BFC882CF1303A46643E4CFA79B8A4.e.158")&gt;, &lt;selenium.webdri...</msg>
+<var>${elements}</var>
+<arg>${item_cards}</arg>
+<doc>Returns a list of WebElement objects matching the ``locator``.</doc>
+<status status="PASS" start="2025-05-25T16:19:57.925244" elapsed="0.008304"/>
+</kw>
+<kw name="Combine Lists" owner="Collections">
+<msg time="2025-05-25T16:19:57.934119" level="INFO">${all_items} = [&lt;selenium.webdriver.remote.webelement.WebElement (session="8f880563a0ce7a456e1834a118284ef5", element="f.87A6F39159428F7C4AA6BECE4D41F1EE.d.447BFC882CF1303A46643E4CFA79B8A4.e.136")&gt;, &lt;selenium.webdri...</msg>
+<var>${all_items}</var>
+<arg>${all_items}</arg>
+<arg>${elements}</arg>
+<doc>Combines the given ``lists`` together and returns the result.</doc>
+<status status="PASS" start="2025-05-25T16:19:57.933800" elapsed="0.000362"/>
+</kw>
+<kw name="Run Keyword And Return Status" owner="BuiltIn">
+<kw name="Element Should Be Visible" owner="SeleniumLibrary">
+<msg time="2025-05-25T16:19:58.274025" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-1.png"&gt;&lt;img src="selenium-screenshot-1.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg time="2025-05-25T16:19:58.274183" level="FAIL">The element 'id:next2' should be visible, but it is not.</msg>
+<arg>${next_button}</arg>
+<doc>Verifies that the element identified by ``locator`` is visible.</doc>
+<status status="FAIL" start="2025-05-25T16:19:57.934499" elapsed="0.341422">The element 'id:next2' should be visible, but it is not.</status>
+</kw>
+<msg time="2025-05-25T16:19:58.276048" level="INFO">${is_visible} = False</msg>
+<var>${is_visible}</var>
+<arg>Element Should Be Visible</arg>
+<arg>${next_button}</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<status status="PASS" start="2025-05-25T16:19:57.934316" elapsed="0.341753"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<kw name="Exit For Loop" owner="BuiltIn">
+<msg time="2025-05-25T16:19:58.276449" level="INFO">Exiting for loop altogether.</msg>
+<doc>Stops executing the enclosing FOR loop.</doc>
+<status status="PASS" start="2025-05-25T16:19:58.276391" elapsed="0.000105"/>
+</kw>
+<arg>not ${is_visible}</arg>
+<arg>Exit For Loop</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2025-05-25T16:19:58.276202" elapsed="0.000330"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<arg>${next_button}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="NOT RUN" start="2025-05-25T16:19:58.276600" elapsed="0.000017"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="NOT RUN" start="2025-05-25T16:19:58.276670" elapsed="0.000014"/>
+</kw>
+<status status="PASS" start="2025-05-25T16:19:57.924781" elapsed="0.351925"/>
+</iter>
+<status status="PASS" start="2025-05-25T16:19:53.800860" elapsed="4.475872"/>
+</while>
+<kw name="Get Length" owner="BuiltIn">
+<msg time="2025-05-25T16:19:58.276871" level="INFO">Length is 15.</msg>
+<msg time="2025-05-25T16:19:58.276911" level="INFO">${total} = 15</msg>
+<var>${total}</var>
+<arg>${all_items}</arg>
+<doc>Returns and logs the length of the given item as an integer.</doc>
+<status status="PASS" start="2025-05-25T16:19:58.276802" elapsed="0.000122"/>
+</kw>
+<kw name="Return From Keyword" owner="BuiltIn">
+<msg time="2025-05-25T16:19:58.277028" level="INFO">Returning from the enclosing user keyword.</msg>
+<arg>${total}</arg>
+<doc>Returns from the enclosing user keyword.</doc>
+<status status="PASS" start="2025-05-25T16:19:58.276988" elapsed="0.000074"/>
+</kw>
+<msg time="2025-05-25T16:19:58.277176" level="INFO">${total_items} = 15</msg>
+<var>${total_items}</var>
+<status status="PASS" start="2025-05-25T16:19:53.800480" elapsed="4.476731"/>
+</kw>
+<kw name="Assert Total Count" owner="resources">
+<kw name="Should Be Equal As Integers" owner="BuiltIn">
+<msg time="2025-05-25T16:19:58.277897" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;class 'str'&gt;</msg>
+<arg>${actual}</arg>
+<arg>${expected}</arg>
+<arg>Expected ${expected} items but got ${actual}</arg>
+<doc>Fails if objects are unequal after converting them to integers.</doc>
+<status status="PASS" start="2025-05-25T16:19:58.277731" elapsed="0.000210"/>
+</kw>
+<arg>${total_items}</arg>
+<arg>15</arg>
+<status status="PASS" start="2025-05-25T16:19:58.277509" elapsed="0.000479"/>
+</kw>
+<kw name="Close Edge" owner="resources" type="TEARDOWN">
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-05-25T16:20:00.278832" level="INFO">Slept 2 seconds.</msg>
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-05-25T16:19:58.278454" elapsed="2.000549"/>
+</kw>
+<kw name="Close Browser" owner="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2025-05-25T16:20:00.279236" elapsed="2.251636"/>
+</kw>
+<status status="PASS" start="2025-05-25T16:19:58.278295" elapsed="4.252779"/>
+</kw>
+<status status="PASS" start="2025-05-25T16:19:50.204478" elapsed="12.326875"/>
+</test>
+<test id="s1-t2" name="Verify Item Description and Price" line="19">
+<kw name="Open Edge On Landing Page" owner="resources" type="SETUP">
+<kw name="Create Webdriver" owner="SeleniumLibrary">
+<msg time="2025-05-25T16:20:02.533183" level="INFO">Creating an instance of the Chrome WebDriver.</msg>
+<arg>Chrome</arg>
+<doc>Creates an instance of Selenium WebDriver.</doc>
+<status status="PASS" start="2025-05-25T16:20:02.533015" elapsed="1.348642"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2025-05-25T16:20:03.881815" elapsed="0.028127"/>
+</kw>
+<kw name="Go To" owner="SeleniumLibrary">
+<msg time="2025-05-25T16:20:03.910328" level="INFO">Opening url 'https://www.demoblaze.com/'</msg>
+<arg>${landing_page}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<status status="PASS" start="2025-05-25T16:20:03.910135" elapsed="1.360425"/>
+</kw>
+<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
+<arg>id:cat</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" start="2025-05-25T16:20:05.270811" elapsed="0.008275"/>
+</kw>
+<arg>https://www.demoblaze.com/</arg>
+<status status="PASS" start="2025-05-25T16:20:02.532646" elapsed="2.746538"/>
+</kw>
+<kw name="Go To Home Page" owner="resources">
+<kw name="Go To" owner="SeleniumLibrary">
+<msg time="2025-05-25T16:20:05.279730" level="INFO">Opening url 'https://www.demoblaze.com/index.html'</msg>
+<arg>https://www.demoblaze.com/index.html</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<status status="PASS" start="2025-05-25T16:20:05.279653" elapsed="0.220470"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${cat_icon}</arg>
+<arg>timeout=10s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-05-25T16:20:05.500288" elapsed="0.015799"/>
+</kw>
+<status status="PASS" start="2025-05-25T16:20:05.279456" elapsed="0.236734"/>
+</kw>
+<kw name="Go To Phone Section" owner="resources">
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-05-25T16:20:05.516806" level="INFO">Clicking element 'xpath://a[contains(text(), 'Phones')]'.</msg>
+<arg>${phone_tab}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-05-25T16:20:05.516664" elapsed="0.050864"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-05-25T16:20:08.568386" level="INFO">Slept 3 seconds.</msg>
+<arg>3s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-05-25T16:20:05.567695" elapsed="3.000866"/>
+</kw>
+<status status="PASS" start="2025-05-25T16:20:05.516459" elapsed="3.052254"/>
+</kw>
+<kw name="Validate Item Details" owner="resources">
+<kw name="Click Item Card By Name" owner="resources">
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-05-25T16:20:08.570148" level="INFO">${found} = False</msg>
+<var>${found}</var>
+<arg>${False}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-05-25T16:20:08.569931" elapsed="0.000237"/>
+</kw>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2025-05-25T16:20:08.570393" level="INFO">${normalized_item_name} = htc one m9</msg>
+<var>${normalized_item_name}</var>
+<arg>'${item_name}'.lower().strip()</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2025-05-25T16:20:08.570251" elapsed="0.000157"/>
+</kw>
+<while condition="not ${found}">
+<iter>
+<kw name="Get WebElements" owner="SeleniumLibrary">
+<msg time="2025-05-25T16:20:08.582291" level="INFO">${elements} = [&lt;selenium.webdriver.remote.webelement.WebElement (session="f22ebca0fb228637a094d11ddb9a8f4f", element="f.633CF7060169BDE06E29AE4E568347C4.d.BCB403C7DC04C9919BFAAD958BA16B0D.e.137")&gt;, &lt;selenium.webdri...</msg>
+<var>${elements}</var>
+<arg>${item_cards}</arg>
+<doc>Returns a list of WebElement objects matching the ``locator``.</doc>
+<status status="PASS" start="2025-05-25T16:20:08.570722" elapsed="0.011609"/>
+</kw>
+<kw name="Get Length" owner="BuiltIn">
+<msg time="2025-05-25T16:20:08.582575" level="INFO">Length is 7.</msg>
+<msg time="2025-05-25T16:20:08.582622" level="INFO">${count} = 7</msg>
+<var>${count}</var>
+<arg>${elements}</arg>
+<doc>Returns and logs the length of the given item as an integer.</doc>
+<status status="PASS" start="2025-05-25T16:20:08.582463" elapsed="0.000172"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Found ${count} items on current page</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-05-25T16:20:08.582714" elapsed="0.000261"/>
+</kw>
+<for flavor="IN RANGE">
+<iter>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-05-25T16:20:08.583691" level="INFO">${title_xpath} = (//div[@class='col-lg-4 col-md-6 mb-4'])[1]//h4/a</msg>
+<var>${title_xpath}</var>
+<arg>(//div[@class='col-lg-4 col-md-6 mb-4'])[${index}]//h4/a</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-05-25T16:20:08.583575" elapsed="0.000134"/>
+</kw>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2025-05-25T16:20:08.597987" level="INFO">${title} = Samsung galaxy s6</msg>
+<var>${title}</var>
+<arg>${title_xpath}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-05-25T16:20:08.583783" elapsed="0.014236"/>
+</kw>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2025-05-25T16:20:08.598304" level="INFO">${normalized_title} = samsung galaxy s6</msg>
+<var>${normalized_title}</var>
+<arg>'${title}'.lower().strip()</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2025-05-25T16:20:08.598135" elapsed="0.000187"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Checking item: ${title} (Normalized: ${normalized_title})</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-05-25T16:20:08.598389" elapsed="0.000236"/>
+</kw>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2025-05-25T16:20:08.599206" level="INFO">${is_match} = False</msg>
+<var>${is_match}</var>
+<arg>'${normalized_item_name}' in '${normalized_title}'</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2025-05-25T16:20:08.598823" elapsed="0.000430"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<arg>${is_match}</arg>
+<arg>Run Keywords</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2025-05-25T16:20:08.599434" elapsed="0.000154"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<arg>${is_match}</arg>
+<arg>Click Element</arg>
+<arg>${title_xpath}</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2025-05-25T16:20:08.599733" elapsed="0.000156"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<arg>${is_match}</arg>
+<arg>Set Test Variable</arg>
+<arg>${found}</arg>
+<arg>${True}</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2025-05-25T16:20:08.600023" elapsed="0.000127"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<arg>${is_match}</arg>
+<arg>Exit For Loop</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2025-05-25T16:20:08.600287" elapsed="0.000126"/>
+</kw>
+<var name="${index}">1</var>
+<status status="PASS" start="2025-05-25T16:20:08.583493" elapsed="0.016975"/>
+</iter>
+<iter>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-05-25T16:20:08.601013" level="INFO">${title_xpath} = (//div[@class='col-lg-4 col-md-6 mb-4'])[2]//h4/a</msg>
+<var>${title_xpath}</var>
+<arg>(//div[@class='col-lg-4 col-md-6 mb-4'])[${index}]//h4/a</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-05-25T16:20:08.600789" elapsed="0.000262"/>
+</kw>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2025-05-25T16:20:08.614106" level="INFO">${title} = Nokia lumia 1520</msg>
+<var>${title}</var>
+<arg>${title_xpath}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-05-25T16:20:08.601177" elapsed="0.012977"/>
+</kw>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2025-05-25T16:20:08.614588" level="INFO">${normalized_title} = nokia lumia 1520</msg>
+<var>${normalized_title}</var>
+<arg>'${title}'.lower().strip()</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2025-05-25T16:20:08.614337" elapsed="0.000278"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Checking item: ${title} (Normalized: ${normalized_title})</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-05-25T16:20:08.614711" elapsed="0.000288"/>
+</kw>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2025-05-25T16:20:08.615278" level="INFO">${is_match} = False</msg>
+<var>${is_match}</var>
+<arg>'${normalized_item_name}' in '${normalized_title}'</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2025-05-25T16:20:08.615121" elapsed="0.000175"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<arg>${is_match}</arg>
+<arg>Run Keywords</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2025-05-25T16:20:08.615372" elapsed="0.000073"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<arg>${is_match}</arg>
+<arg>Click Element</arg>
+<arg>${title_xpath}</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2025-05-25T16:20:08.615507" elapsed="0.000058"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<arg>${is_match}</arg>
+<arg>Set Test Variable</arg>
+<arg>${found}</arg>
+<arg>${True}</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2025-05-25T16:20:08.615625" elapsed="0.000056"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<arg>${is_match}</arg>
+<arg>Exit For Loop</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2025-05-25T16:20:08.615740" elapsed="0.000052"/>
+</kw>
+<var name="${index}">2</var>
+<status status="PASS" start="2025-05-25T16:20:08.600669" elapsed="0.015147"/>
+</iter>
+<iter>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-05-25T16:20:08.616378" level="INFO">${title_xpath} = (//div[@class='col-lg-4 col-md-6 mb-4'])[3]//h4/a</msg>
+<var>${title_xpath}</var>
+<arg>(//div[@class='col-lg-4 col-md-6 mb-4'])[${index}]//h4/a</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-05-25T16:20:08.615961" elapsed="0.000434"/>
+</kw>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2025-05-25T16:20:08.626683" level="INFO">${title} = Nexus 6</msg>
+<var>${title}</var>
+<arg>${title_xpath}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-05-25T16:20:08.616511" elapsed="0.010204"/>
+</kw>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2025-05-25T16:20:08.626985" level="INFO">${normalized_title} = nexus 6</msg>
+<var>${normalized_title}</var>
+<arg>'${title}'.lower().strip()</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2025-05-25T16:20:08.626823" elapsed="0.000180"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Checking item: ${title} (Normalized: ${normalized_title})</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-05-25T16:20:08.627068" elapsed="0.000284"/>
+</kw>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2025-05-25T16:20:08.627673" level="INFO">${is_match} = False</msg>
+<var>${is_match}</var>
+<arg>'${normalized_item_name}' in '${normalized_title}'</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2025-05-25T16:20:08.627479" elapsed="0.000217"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<arg>${is_match}</arg>
+<arg>Run Keywords</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2025-05-25T16:20:08.627781" elapsed="0.000079"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<arg>${is_match}</arg>
+<arg>Click Element</arg>
+<arg>${title_xpath}</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2025-05-25T16:20:08.627931" elapsed="0.000068"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<arg>${is_match}</arg>
+<arg>Set Test Variable</arg>
+<arg>${found}</arg>
+<arg>${True}</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2025-05-25T16:20:08.628068" elapsed="0.000065"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<arg>${is_match}</arg>
+<arg>Exit For Loop</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2025-05-25T16:20:08.628200" elapsed="0.000066"/>
+</kw>
+<var name="${index}">3</var>
+<status status="PASS" start="2025-05-25T16:20:08.615911" elapsed="0.012386"/>
+</iter>
+<iter>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-05-25T16:20:08.628576" level="INFO">${title_xpath} = (//div[@class='col-lg-4 col-md-6 mb-4'])[4]//h4/a</msg>
+<var>${title_xpath}</var>
+<arg>(//div[@class='col-lg-4 col-md-6 mb-4'])[${index}]//h4/a</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-05-25T16:20:08.628461" elapsed="0.000135"/>
+</kw>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2025-05-25T16:20:08.639207" level="INFO">${title} = Samsung galaxy s7</msg>
+<var>${title}</var>
+<arg>${title_xpath}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-05-25T16:20:08.628661" elapsed="0.010634"/>
+</kw>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2025-05-25T16:20:08.639769" level="INFO">${normalized_title} = samsung galaxy s7</msg>
+<var>${normalized_title}</var>
+<arg>'${title}'.lower().strip()</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2025-05-25T16:20:08.639559" elapsed="0.000230"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Checking item: ${title} (Normalized: ${normalized_title})</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-05-25T16:20:08.639867" elapsed="0.000284"/>
+</kw>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2025-05-25T16:20:08.640408" level="INFO">${is_match} = False</msg>
+<var>${is_match}</var>
+<arg>'${normalized_item_name}' in '${normalized_title}'</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2025-05-25T16:20:08.640246" elapsed="0.000182"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<arg>${is_match}</arg>
+<arg>Run Keywords</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2025-05-25T16:20:08.640506" elapsed="0.000069"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<arg>${is_match}</arg>
+<arg>Click Element</arg>
+<arg>${title_xpath}</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2025-05-25T16:20:08.640639" elapsed="0.000059"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<arg>${is_match}</arg>
+<arg>Set Test Variable</arg>
+<arg>${found}</arg>
+<arg>${True}</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2025-05-25T16:20:08.640756" elapsed="0.000055"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<arg>${is_match}</arg>
+<arg>Exit For Loop</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2025-05-25T16:20:08.640868" elapsed="0.000053"/>
+</kw>
+<var name="${index}">4</var>
+<status status="PASS" start="2025-05-25T16:20:08.628401" elapsed="0.012544"/>
+</iter>
+<iter>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-05-25T16:20:08.641178" level="INFO">${title_xpath} = (//div[@class='col-lg-4 col-md-6 mb-4'])[5]//h4/a</msg>
+<var>${title_xpath}</var>
+<arg>(//div[@class='col-lg-4 col-md-6 mb-4'])[${index}]//h4/a</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-05-25T16:20:08.641089" elapsed="0.000105"/>
+</kw>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2025-05-25T16:20:08.651454" level="INFO">${title} = Iphone 6 32gb</msg>
+<var>${title}</var>
+<arg>${title_xpath}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-05-25T16:20:08.641256" elapsed="0.010232"/>
+</kw>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2025-05-25T16:20:08.651777" level="INFO">${normalized_title} = iphone 6 32gb</msg>
+<var>${normalized_title}</var>
+<arg>'${title}'.lower().strip()</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2025-05-25T16:20:08.651606" elapsed="0.000189"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Checking item: ${title} (Normalized: ${normalized_title})</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-05-25T16:20:08.651861" elapsed="0.000234"/>
+</kw>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2025-05-25T16:20:08.652401" level="INFO">${is_match} = False</msg>
+<var>${is_match}</var>
+<arg>'${normalized_item_name}' in '${normalized_title}'</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2025-05-25T16:20:08.652211" elapsed="0.000210"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<arg>${is_match}</arg>
+<arg>Run Keywords</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2025-05-25T16:20:08.652498" elapsed="0.000073"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<arg>${is_match}</arg>
+<arg>Click Element</arg>
+<arg>${title_xpath}</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2025-05-25T16:20:08.652638" elapsed="0.000059"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<arg>${is_match}</arg>
+<arg>Set Test Variable</arg>
+<arg>${found}</arg>
+<arg>${True}</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2025-05-25T16:20:08.652756" elapsed="0.000055"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<arg>${is_match}</arg>
+<arg>Exit For Loop</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2025-05-25T16:20:08.652972" elapsed="0.000066"/>
+</kw>
+<var name="${index}">5</var>
+<status status="PASS" start="2025-05-25T16:20:08.641039" elapsed="0.012024"/>
+</iter>
+<iter>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-05-25T16:20:08.653305" level="INFO">${title_xpath} = (//div[@class='col-lg-4 col-md-6 mb-4'])[6]//h4/a</msg>
+<var>${title_xpath}</var>
+<arg>(//div[@class='col-lg-4 col-md-6 mb-4'])[${index}]//h4/a</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-05-25T16:20:08.653208" elapsed="0.000112"/>
+</kw>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2025-05-25T16:20:08.663045" level="INFO">${title} = Sony xperia z5</msg>
+<var>${title}</var>
+<arg>${title_xpath}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-05-25T16:20:08.653383" elapsed="0.009691"/>
+</kw>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2025-05-25T16:20:08.663321" level="INFO">${normalized_title} = sony xperia z5</msg>
+<var>${normalized_title}</var>
+<arg>'${title}'.lower().strip()</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2025-05-25T16:20:08.663170" elapsed="0.000168"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Checking item: ${title} (Normalized: ${normalized_title})</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-05-25T16:20:08.663401" elapsed="0.000243"/>
+</kw>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2025-05-25T16:20:08.663888" level="INFO">${is_match} = False</msg>
+<var>${is_match}</var>
+<arg>'${normalized_item_name}' in '${normalized_title}'</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2025-05-25T16:20:08.663742" elapsed="0.000165"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<arg>${is_match}</arg>
+<arg>Run Keywords</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2025-05-25T16:20:08.663982" elapsed="0.000081"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<arg>${is_match}</arg>
+<arg>Click Element</arg>
+<arg>${title_xpath}</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2025-05-25T16:20:08.664130" elapsed="0.000058"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<arg>${is_match}</arg>
+<arg>Set Test Variable</arg>
+<arg>${found}</arg>
+<arg>${True}</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2025-05-25T16:20:08.664247" elapsed="0.000056"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<arg>${is_match}</arg>
+<arg>Exit For Loop</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2025-05-25T16:20:08.664364" elapsed="0.000055"/>
+</kw>
+<var name="${index}">6</var>
+<status status="PASS" start="2025-05-25T16:20:08.653158" elapsed="0.011285"/>
+</iter>
+<iter>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-05-25T16:20:08.664687" level="INFO">${title_xpath} = (//div[@class='col-lg-4 col-md-6 mb-4'])[7]//h4/a</msg>
+<var>${title_xpath}</var>
+<arg>(//div[@class='col-lg-4 col-md-6 mb-4'])[${index}]//h4/a</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-05-25T16:20:08.664590" elapsed="0.000113"/>
+</kw>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2025-05-25T16:20:08.675442" level="INFO">${title} = HTC One M9</msg>
+<var>${title}</var>
+<arg>${title_xpath}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-05-25T16:20:08.664771" elapsed="0.010710"/>
+</kw>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2025-05-25T16:20:08.675804" level="INFO">${normalized_title} = htc one m9</msg>
+<var>${normalized_title}</var>
+<arg>'${title}'.lower().strip()</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2025-05-25T16:20:08.675617" elapsed="0.000204"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Checking item: ${title} (Normalized: ${normalized_title})</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-05-25T16:20:08.675888" elapsed="0.000306"/>
+</kw>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2025-05-25T16:20:08.676447" level="INFO">${is_match} = True</msg>
+<var>${is_match}</var>
+<arg>'${normalized_item_name}' in '${normalized_title}'</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2025-05-25T16:20:08.676292" elapsed="0.000173"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<kw name="Run Keywords" owner="BuiltIn">
+<doc>Executes all the given keywords in a sequence.</doc>
+<status status="PASS" start="2025-05-25T16:20:08.676635" elapsed="0.000046"/>
+</kw>
+<arg>${is_match}</arg>
+<arg>Run Keywords</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2025-05-25T16:20:08.676536" elapsed="0.000176"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-05-25T16:20:08.676960" level="INFO">Clicking element '(//div[@class='col-lg-4 col-md-6 mb-4'])[7]//h4/a'.</msg>
+<arg>${title_xpath}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-05-25T16:20:08.676852" elapsed="0.472267"/>
+</kw>
+<arg>${is_match}</arg>
+<arg>Click Element</arg>
+<arg>${title_xpath}</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2025-05-25T16:20:08.676763" elapsed="0.472493"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<kw name="Set Test Variable" owner="BuiltIn">
+<msg time="2025-05-25T16:20:09.149865" level="INFO">${found} = True</msg>
+<arg>${found}</arg>
+<arg>${True}</arg>
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<status status="PASS" start="2025-05-25T16:20:09.149720" elapsed="0.000178"/>
+</kw>
+<arg>${is_match}</arg>
+<arg>Set Test Variable</arg>
+<arg>${found}</arg>
+<arg>${True}</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2025-05-25T16:20:09.149457" elapsed="0.000474"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<kw name="Exit For Loop" owner="BuiltIn">
+<msg time="2025-05-25T16:20:09.150150" level="INFO">Exiting for loop altogether.</msg>
+<doc>Stops executing the enclosing FOR loop.</doc>
+<status status="PASS" start="2025-05-25T16:20:09.150094" elapsed="0.000240"/>
+</kw>
+<arg>${is_match}</arg>
+<arg>Exit For Loop</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2025-05-25T16:20:09.149995" elapsed="0.000381"/>
+</kw>
+<var name="${index}">7</var>
+<status status="PASS" start="2025-05-25T16:20:08.664539" elapsed="0.485862"/>
+</iter>
+<var>${index}</var>
+<value>1</value>
+<value>${count + 1}</value>
+<status status="PASS" start="2025-05-25T16:20:08.583055" elapsed="0.567386"/>
+</for>
+<kw name="Run Keyword If" owner="BuiltIn">
+<kw name="Exit For Loop" owner="BuiltIn">
+<msg time="2025-05-25T16:20:09.150732" level="INFO">Exiting for loop altogether.</msg>
+<doc>Stops executing the enclosing FOR loop.</doc>
+<status status="PASS" start="2025-05-25T16:20:09.150686" elapsed="0.000078"/>
+</kw>
+<arg>${found}</arg>
+<arg>Exit For Loop</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2025-05-25T16:20:09.150561" elapsed="0.000277"/>
+</kw>
+<kw name="Run Keyword And Return Status" owner="BuiltIn">
+<var>${is_visible}</var>
+<arg>Element Should Be Visible</arg>
+<arg>${next_button}</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<status status="NOT RUN" start="2025-05-25T16:20:09.150900" elapsed="0.000017"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<arg>not ${is_visible} and not ${found}</arg>
+<arg>Fail</arg>
+<arg>Item '${item_name}' not found in Phones section</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="NOT RUN" start="2025-05-25T16:20:09.150968" elapsed="0.000013"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<arg>${is_visible}</arg>
+<arg>Click Button</arg>
+<arg>${next_button}</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="NOT RUN" start="2025-05-25T16:20:09.151029" elapsed="0.000014"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="NOT RUN" start="2025-05-25T16:20:09.151090" elapsed="0.000013"/>
+</kw>
+<status status="PASS" start="2025-05-25T16:20:08.570455" elapsed="0.580668"/>
+</iter>
+<status status="PASS" start="2025-05-25T16:20:08.570453" elapsed="0.580695"/>
+</while>
+<arg>${item_name}</arg>
+<status status="PASS" start="2025-05-25T16:20:08.569781" elapsed="0.581420"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${item_description_xpath}</arg>
+<arg>timeout=10s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-05-25T16:20:09.151264" elapsed="0.444108"/>
+</kw>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2025-05-25T16:20:09.605280" level="INFO">${actual_description} = The HTC One M9 is powered by 1.5GHz octa-core Qualcomm Snapdragon 810 processor and it comes with 3GB of RAM. The phone packs 32GB of internal storage that can be expanded up to 128GB via a microSD ca...</msg>
+<var>${actual_description}</var>
+<arg>${item_description_xpath}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-05-25T16:20:09.595537" elapsed="0.009781"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${item_price_css}</arg>
+<arg>timeout=10s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-05-25T16:20:09.605452" elapsed="0.009656"/>
+</kw>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2025-05-25T16:20:09.623279" level="INFO">${raw_price} = $700 *includes tax</msg>
+<var>${raw_price}</var>
+<arg>${item_price_css}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-05-25T16:20:09.615262" elapsed="0.008055"/>
+</kw>
+<kw name="Split String" owner="String">
+<msg time="2025-05-25T16:20:09.623584" level="INFO">${price_parts} = ['$700', '*includes', 'tax']</msg>
+<var>${price_parts}</var>
+<arg>${raw_price}</arg>
+<arg>${SPACE}</arg>
+<doc>Splits the ``string`` using ``separator`` as a delimiter string.</doc>
+<status status="PASS" start="2025-05-25T16:20:09.623441" elapsed="0.000161"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-05-25T16:20:09.623762" level="INFO">${actual_price} = $700</msg>
+<var>${actual_price}</var>
+<arg>${price_parts}[0]</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-05-25T16:20:09.623669" elapsed="0.000108"/>
+</kw>
+<kw name="Should Be Equal As Strings" owner="BuiltIn">
+<arg>${actual_description}</arg>
+<arg>${expected_description}</arg>
+<arg>Description mismatch for ${item_name}</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" start="2025-05-25T16:20:09.623835" elapsed="0.000145"/>
+</kw>
+<kw name="Should Be Equal As Strings" owner="BuiltIn">
+<arg>${actual_price}</arg>
+<arg>${expected_price}</arg>
+<arg>Price mismatch for ${item_name}</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" start="2025-05-25T16:20:09.624041" elapsed="0.000110"/>
+</kw>
+<arg>${item_name}</arg>
+<arg>${expected_description}</arg>
+<arg>${expected_price}</arg>
+<status status="PASS" start="2025-05-25T16:20:08.569327" elapsed="1.054871"/>
+</kw>
+<kw name="Close Edge" owner="resources" type="TEARDOWN">
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-05-25T16:20:11.625495" level="INFO">Slept 2 seconds.</msg>
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-05-25T16:20:09.625069" elapsed="2.000596"/>
+</kw>
+<kw name="Close Browser" owner="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2025-05-25T16:20:11.625909" elapsed="2.168290"/>
+</kw>
+<status status="PASS" start="2025-05-25T16:20:09.624698" elapsed="4.169683"/>
+</kw>
+<status status="PASS" start="2025-05-25T16:20:02.532052" elapsed="11.262567"/>
+</test>
+<doc>Test suite for verifying Demoblaze functionality.</doc>
+<status status="PASS" start="2025-05-25T16:19:50.007411" elapsed="23.788324"/>
+</suite>
+<statistics>
+<total>
+<stat pass="2" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat name="Test Demoblaze" id="s1" pass="2" fail="0" skip="0">Test Demoblaze</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
