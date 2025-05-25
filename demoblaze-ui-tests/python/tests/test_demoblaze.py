@@ -1,15 +1,23 @@
+import sys
+import os
+
+# Add the root project folder to sys.path for absolute imports to work
+sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
+
+
 import time
+from utils.utils import ITEM_NAME, EXPECTED_DESCRIPTION, EXPECTED_PRICE
+from pages.demoblaze_page import DemoblazePage
+
 from selenium import webdriver
-from ..utils.utils import ITEM_NAME, EXPECTED_DESCRIPTION, EXPECTED_PRICE
-from ..pages.demoblaze_page import DemoblazePage
 from selenium.webdriver.chrome.options import Options
 
 options = Options()
-# options.add_argument("--headless")  # if running in headless mode
-# options.add_argument("--no-sandbox")
-# options.add_argument("--disable-dev-shm-usage")
-# options.add_argument("--remote-debugging-port=9222")
-# options.add_argument("--user-data-dir=/tmp/chrome-profile")
+options.add_argument("--headless")  # Run in headless mode
+options.add_argument("--no-sandbox")
+options.add_argument("--disable-dev-shm-usage")
+options.add_argument("--disable-gpu")
+options.add_argument("--user-data-dir=/tmp/chrome-user-data")  # Unique temp dir
 
 
 
