@@ -14,8 +14,9 @@ Python-based UI tests for the [Demoblaze](https://www.demoblaze.com) website usi
 ### Terminal
 1. Clone the repository and navigate to the module:
    ```bash
-   git clone <repository-url>
-   cd Siemens_OnBoardingTasks/demoblaze-ui-tests/python
+   git clone "https://github.com/Fathi79/onboarding-tasks"
+   git checkout ui-testing-python
+   cd demoblaze-ui-tests/python/tests
    ```
 2. Create and activate a virtual environment:
    ```bash
@@ -30,23 +31,17 @@ Python-based UI tests for the [Demoblaze](https://www.demoblaze.com) website usi
    pip install -r requirements.txt
    ```
 
-### PyCharm
-1. Open `Siemens_OnBoardingTasks/demoblaze-ui-tests/python/` in PyCharm.
-2. Configure the Python interpreter:
-   - Go to `File > Settings > Project: python > Python Interpreter`.
-   - Add an existing virtual environment: `venv\Scripts\python.exe` (Windows) or `venv/bin/python` (macOS/Linux).
-3. Mark as Sources Root:
-   - Right-click `demoblaze-ui-tests/python/` in Project view > `Mark Directory as > Sources Root`.
-4. Install dependencies:
-   ```bash
-   pip install -r requirements.txt
-   ```
-   Or use PyCharm’s interpreter settings to install `selenium`, `pytest`, and `webdriver-manager`.
+## Run Using Docker
+* Navigate to python folder, open command line and run this commands
+
+```bash
+    docker build -m ui-python-tests .
+    docker run --rm ui-python-tests
+```
+
 
 ## Running Tests
 - **Terminal**:
   ```bash
-  pytest tests/test_demoblaze.py -v
+  python -m pytest tests/test_demoblaze.py 
   ```
-- **PyCharm**:
-  Right-click `tests/test_demoblaze.py` > `Run 'pytest in test_demoblaze.py'`.
