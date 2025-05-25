@@ -38,9 +38,9 @@ Required libraries:
 ## 🚀 How to Run Tests
 
 To execute the tests, run the following command in your terminal from the project root:
-
+* navigate to robot-framwork/tests and run the following command
 ```bash
-robot tests/
+  robot --outputdir ../results pet_api_tests.robot 
 ```
 
 Test results will be saved in the `results/` folder, including:
@@ -50,7 +50,19 @@ Test results will be saved in the `results/` folder, including:
 
 ---
 
+## Run Using DOCKER
+
+Navigate to robot-framework folder open CMD and Run the following Command
+
+```bash
+    docker build -t robot-api-tests
+    docker run --rm robot-api-tests
+```
+
+
+
 ## 💡 Notes
 
 - All reusable keywords and variables are stored in `resources/keywords.robot`.
 - Make sure the API endpoint `${BASE_URL}` is accessible before running the tests.
+- APIs Response is so random and unreliable 
